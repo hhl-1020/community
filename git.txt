@@ -1,5 +1,5 @@
-git config --global user.name ""
-git config --global user.email ""
+git config --global user.name "hhl"
+git config --global user.email "3246443700@qq.com"
 
 git分支:head指针和master指针
     git分支的创建:git branch 分支的名字
