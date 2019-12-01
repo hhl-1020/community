@@ -1,0 +1,60 @@
+git config --global user.name ""
+git config --global user.email ""
+
+git分支:head指针和master指针
+    git分支的创建:git branch 分支的名字
+
+    查看分支:git branch
+
+    切换分支:git checkout 分支的名字
+
+    创建分之后立即切换到该分支:git checkout -b 分支的名字
+
+    合并某分支到当前分支:git merge 分支的名字
+        注意:要把分支合并到目标分支要先切换到目标分支
+
+    删除分支:git branch -d 分支的名字
+
+    git分支的合并:合并分支即是将某个分支(除master分支之外)作为新的master分支,
+        先把head指针指向该分支,再把master指针指向head指针
+
+    git分支的切换:当要切换分支的时候,将head指针指向指定分支即可
+
+解决冲突:手动解决
+
+查看分支的合并情况:git log --graph --pretty=oneline --abbrev-commit
+
+git分支的管理策略:合并分支默认采用的是Fast forward模式,这样会在删除分支之后丢掉分支的信息
+
+关闭默认的模式并合并分支:git merge --no-ff -m "no -ff" dev
+
+保存工作现场stash:git stash
+
+查看之前的工作现场:git stash list
+
+恢复工作现场但不删除工作现场:git stash apply
+    若要删除:git stash drop
+
+恢复的同时删除工作现场:git stash pop
+
+也可以创建多个工作现场:
+    恢复指定的工作现场:git stash apply stash@{}
+
+在没有合并的情况下强制删除一个分支:git branch -D 分支的名字
+
+把本地仓库中指定的分支推送到远程的仓库:
+    git push origin 分支的名字
+
+解决多人协作的冲突:先拉取,后商量解决
+
+$ git push origin
+上面命令表示，将当前分支推送到origin主机的对应分支。
+如果当前分支只有一个追踪分支，那么主机名都可以省略。
+$ git push 如果当前分支与多个主机存在追踪关系，那么这个时候-u选项会指定一个默认主机，这样后面就可以不加任何参数使用git push。
+$ git push -u origin master 上面命令将本地的master分支推送到origin主机，
+    同时指定origin为默认主机，后面就可以不加任何参数使用git push了。
+不带任何参数的git push，默认只推送当前分支，这叫做simple方式。此外，还有一种matching方式，会推送所有有对应的远程分支的本地分支。
+    Git 2.0版本之前，默认采用matching方法，现在改为默认采用simple方式。
+
+
+
